@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de adopcion</title>
+</head>
+<body>
+
+  <h2>Registro de adopcion</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbzV9d5S0VFQif_CqXGyepwhZIRFg7zFEVkgoCDnBc2g6yQTsPNRuC1fYGvs_5NqP8xV6Q/exec" 
+  method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" required min="1" max="120"><br><br>
+
+    <label for="direccion">Direccion:</label><br>
+    <input type="text" id="direccion" name="direccion" required><br><br>
+
+    <label for="trabajo">Trabajo/profecion:</label><br>
+    <input type="text" id="trabajo" name="trabajo" required><br><br>
+
+<label for="DNI">DNI:</label><br>
+    <input type="text" id="DNI" name="DNI" required><br><br>
+
+<label for="mascota">Cuantos mascotas tiene?:</label><br>
+    <input type="number" id="mascota" name="mascota" required min="0" max="5"><br><br>
+
+<label for="gato">Ingrese nombre del gato desea adoptar:</label><br>
+    <input type="text" id="gato" name="gato" required><br><br>
+
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
